@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reseñas de Google</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 </head>
 <body>
     <h2>Buscar Reseñas de Google</h2>
     <input type="text" id="placeInput" placeholder="Nombre del lugar">
     <button onclick="searchPlace()">Buscar</button>
-    <div id="reviewsContainer"></div>
+    <div class="swiper">
+        <div class="swiper-wrapper" id="reviewsContainer">
+            <!-- Reseñas dinámicas se insertarán aquí -->
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
     
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTn7Tb-j-gLIR-wwM9KnpRvt1EVArDPZ8&libraries=places"></script>
 </body>
