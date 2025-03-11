@@ -18,7 +18,7 @@ function searchPlace() {
             alert("No se encontró el lugar.");
         }
     });
-    
+
     function getReviews(placeId) {
         const service = new google.maps.places.PlacesService(document.createElement('div'));
     
@@ -30,8 +30,8 @@ function searchPlace() {
             reviewsContainer.innerHTML = "";
     
             if (status !== google.maps.places.PlacesServiceStatus.OK || !place.reviews) {
-                reviewsContainer.innerHTML = "<p>No hay reseñas disponibles.</p>";
-                return;
+            reviewsContainer.innerHTML = "<p>No hay reseñas disponibles o el lugar no tiene reseñas públicas.</p>";
+            return;
             }
     
             place.reviews.forEach(review => {
@@ -48,5 +48,6 @@ function searchPlace() {
                 reviewsContainer.appendChild(reviewElement);
             });
         });
+
     }
 }
