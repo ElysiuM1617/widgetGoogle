@@ -18,36 +18,41 @@ function searchPlace() {
             alert("No se encontró el lugar.");
         }
     });
+}
 
-    function getReviews(placeId) {
-        const service = new google.maps.places.PlacesService(document.createElement('div'));
-    
-        service.getDetails({
-            placeId: placeId,
-            fields: ["reviews"]
-        }, (place, status) => {
-            const reviewsContainer = document.getElementById("reviewsContainer");
-            reviewsContainer.innerHTML = "";
-    
-            if (status !== google.maps.places.PlacesServiceStatus.OK || !place.reviews) {
-            reviewsContainer.innerHTML = "<p>No hay reseñas disponibles o el lugar no tiene reseñas públicas.</p>";
+function getReviews(placeId) {
+    const service = new google.maps.places.PlacesService(document.createElement('div'));
+
+    service.getDetails({
+        placeId: placeId,
+        fields: ["reviews"]
+    }, (place, status) => {
+        const reviewsContainer = document.getElementById("reviewsContainer");
+        reviewsContainer.innerHTML = "";
+
+        if (status !== google.maps.places.PlacesServiceStatus.OK || !place.reviews) {
+            reviewsContainer.innerHTML = "<p>No hay reseñas disponibles.</p>";
             return;
-            }
-    
-            place.reviews.forEach(review => {
-                const reviewElement = document.createElement("div");
-                reviewElement.classList.add("review");
-    
-                reviewElement.innerHTML = `
-                    <img class="profile-img" src="${review.profile_photo_url}" alt="Foto">
-                    <strong>${review.author_name}</strong>
-                    <p class="stars">${"⭐".repeat(review.rating)}</p>
-                    <p>${review.text}</p>
-                `;
-    
-                reviewsContainer.appendChild(reviewElement);
-            });
+        }
+
+        place.reviews.forEach(review => {
+            const reviewElement = document.createElement("div");
+            reviewElement.classList.add("swiper-slide");
+
+            reviewElement.innerHTML = `
+                <img class="profile-img" src="${review.profile_photo_url}" alt="Foto">
+                <strong>${review.author_name}</strong>
+                <p class="stars">${"⭐".repeat(review.rating)}</p>
+                <p>${review.text}</p>
+            `;
+
+            reviewsContainer.appendChild(reviewElement);
         });
 
-    }
+        new Swiper('.swiper-container', {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
+        });
+    });
 }
