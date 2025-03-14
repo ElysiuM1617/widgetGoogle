@@ -49,10 +49,14 @@ function getReviews(placeId) {
             reviewsContainer.appendChild(reviewElement);
         });
 
-        new Swiper('.swiper-container', {
+        new Swiper(".swiper-container", {
             loop: true,
-            pagination: { el: ".swiper-pagination", clickable: true },
-            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
         });
     });
 }
