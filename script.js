@@ -20,6 +20,7 @@ function searchPlace() {
     });
 }
 
+
 function getReviews(placeId) {
     const service = new google.maps.places.PlacesService(document.createElement('div'));
 
@@ -35,20 +36,27 @@ function getReviews(placeId) {
             return;
         }
 
-        place.reviews.forEach(review => {
-            const reviewElement = document.createElement("div");
-            reviewElement.classList.add("swiper-slide");
+        // Limitar la cantidad de reseñas que se muestran
+        const reviewsToShow = place.reviews.slice(0, 5);
 
-            reviewElement.innerHTML = `
-                <img class="profile-img" src="${review.profile_photo_url}" alt="Foto">
-                <strong>${review.author_name}</strong>
-                <p class="stars">${"⭐".repeat(review.rating)}</p>
-                <p>${review.text}</p>
-            `;
+        // Generar estructura del carrusel con Swiper
+        reviewsContainer.innerHTML = `
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    ${reviewsToShow.map(review => `
+                        <div class="swiper-slide">
+                            <img class="profile-img" src="${review.profile_photo_url}" alt="Foto">
+                            <strong>${review.author_name}</strong>
+                            <p class="stars">${"⭐".repeat(review.rating)}</p>
+                            <p>${review.text}</p>
+                        </div>
+                    `).join("")}
+                </div>
+                <div class="swiper-pagination"></div> <!-- Asegurar que haya paginación -->
+            </div>
+        `;
 
-            reviewsContainer.appendChild(reviewElement);
-        });
-
+        // Inicializar Swiper después de insertar el HTML
         new Swiper(".swiper-container", {
             loop: true,
             slidesPerView: 1,
