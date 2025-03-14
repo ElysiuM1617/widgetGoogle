@@ -16,28 +16,68 @@ button {
 
 /* Estilos para el carrusel */
 .swiper-container {
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
+    max-width: 400px; /* Ajusta según el tamaño deseado */
+    padding: 20px 0;
 }
 
 .swiper-slide {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 400px;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    background: white;
+    border-radius: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 350px;
+    min-height: 250px; /* Asegurar que todas tengan el mismo alto */
 }
 
 .profile-img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review-header strong {
+    font-size: 16px;
 }
 
 .stars {
-    color: gold;
+    color: #fbbc04;
+    font-size: 18px;
+    margin: 5px 0;
 }
+
+.review-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.swiper-pagination {
+    position: relative;
+    margin-top: 10px;
+}
+
+.swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: gray;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: black;
+    opacity: 1;
+}
+
