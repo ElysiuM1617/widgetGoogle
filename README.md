@@ -32,7 +32,7 @@ Este proyecto es un widget interactivo que permite buscar lugares y mostrar las 
 ```
 
 ## Uso
-  1. Entra a la página: http://elysium1617.wuaze.com
+  1. Entra a la página: http://elysium1817.wuaze.com
   2. Ingresa el **nombre del lugar** en la barra de búsqueda.
   3. Haz clic en **Buscar**.
   4. Se mostrarán las **reseñas de Google** en un carrusel interactivo.
