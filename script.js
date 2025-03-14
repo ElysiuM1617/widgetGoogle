@@ -45,26 +45,31 @@ function getReviews(placeId) {
                 <div class="swiper-wrapper">
                     ${reviewsToShow.map(review => `
                         <div class="swiper-slide">
-                            <img class="profile-img" src="${review.profile_photo_url}" alt="Foto">
-                            <strong>${review.author_name}</strong>
+                            <div class="review-header">
+                                <img class="profile-img" src="${review.profile_photo_url}" alt="Foto">
+                                <strong>${review.author_name}</strong>
+                            </div>
                             <p class="stars">${"⭐".repeat(review.rating)}</p>
-                            <p>${review.text}</p>
+                            <p class="review-text">${review.text}</p>
                         </div>
                     `).join("")}
                 </div>
-                <div class="swiper-pagination"></div> <!-- Asegurar que haya paginación -->
+                <div class="swiper-pagination"></div>
             </div>
         `;
 
         // Inicializar Swiper después de insertar el HTML
-        new Swiper(".swiper-container", {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
+        setTimeout(() => {
+            new Swiper(".swiper-container", {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 10,
+                autoHeight: false, 
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                }
+            });
+        }, 100);
     });
 }
