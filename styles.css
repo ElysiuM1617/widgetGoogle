@@ -1,23 +1,47 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
     text-align: center;
+    padding: 20px;
+}
+
+.search-box {
+    margin-bottom: 20px;
 }
 
 input {
+    width: 70%;
     padding: 10px;
-    width: 300px;
-    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+/* Cambia el color del borde cuando el input está activo */
+input:focus {
+    border-color: #0077ff;
+    outline: none;
 }
 
 button {
-    padding: 10px;
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    background-color: #0052a3;
 }
 
 /* Estilos para el carrusel */
 .swiper-container {
     width: 100%;
-    max-width: 400px; /* Ajusta según el tamaño deseado */
+    max-width: 400px; 
     padding: 20px 0;
 }
 
@@ -32,7 +56,7 @@ button {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     max-width: 350px;
-    min-height: 250px; /* Asegurar que todas tengan el mismo alto */
+    min-height: 250px; 
 }
 
 .profile-img {
